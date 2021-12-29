@@ -9,10 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^7.7.0",
     "dayjs": "^1.10.7"
   },
   "devDependencies": {
+    "cypress": "^9.2.0",
+    "cypress-file-upload": "^5.0.8",
     "faker": "^5.5.3"
   }
 }

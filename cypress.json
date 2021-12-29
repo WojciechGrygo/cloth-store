@@ -10,6 +10,7 @@
     "baseUrl": "http://automationpractice.com/index.php",
     "env": {
         "login-url": "http://automationpractice.com/index.php?controller=authentication&back=my-account",
+        "contactUs-url": "http://automationpractice.com/index.php?controller=contact",
         "registered-email": "registered@account.com",
         "password": "password"
     }
