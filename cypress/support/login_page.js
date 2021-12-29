@@ -4,8 +4,36 @@ export class LoginPage {
         cy.contains('button', 'Create an account').click()
     }
 
+    clickSignIn() {
+        cy.contains('#SubmitLogin', 'Sign in').click()
+    }
+
+    clearInputs() {
+        cy.get('#email').clear()
+        cy.get('#passwd').clear()
+    }
+
     enterEmail(value) {
         cy.get('#email_create').type(value)
+    }
+
+    enterLoginEmail(value) {
+        cy.get('#email').type(value)
+    }
+
+    enterPassword(value) {
+        cy.get('#passwd').type(value)
+    }
+
+    signIn() {
+        this.clickSignIn()
+        cy.url().should('include', 'my-account')
+        cy.contains('Welcome to your account. Here you can manage all of your personal information and orders.').should('be.visible')
+    }
+
+    verifyLoginValidationMsg(value) {
+        cy.get('.alert-danger').should('have.css', 'background-color', 'rgb(243, 81, 92)')
+        cy.contains('ol li', value).should('be.visible')
     }
 
     verifyValidationMsg(value) {
