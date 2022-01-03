@@ -1,3 +1,4 @@
+import { locators } from "./locators"
 export class LoginPage {
 
     clickCreateAnAccount() {
@@ -19,6 +20,12 @@ export class LoginPage {
 
     enterLoginEmail(value) {
         cy.get('#email').type(value)
+    }    
+    
+    login(email, password) {
+        cy.get(locators.emailInput).type(email)
+        cy.get(locators.passwordInput).type(password)
+        cy.contains(locators.submitBtn, 'Sign in').click()
     }
 
     enterPassword(value) {

@@ -51,7 +51,7 @@ describe('Login Test', () => {
         loginPage.verifyLoginValidationMsg('Authentication failed.')
     })
 
-    it('TC-11 Login and logout', () => {
+    it('TC-11 Successful login and logout', () => {
         loginPage.enterLoginEmail(Cypress.env('registered-email'))
         loginPage.enterPassword(Cypress.env('password'))
         loginPage.signIn()
