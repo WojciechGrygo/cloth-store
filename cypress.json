@@ -1,17 +1,18 @@
 {
-    "retries": {
-        "runMode": 2,
-        "openMode": 1
-    },
-    "viewportWidth": 1280,
-    "viewportHeight": 720,
-    "defaultCommandTimeout" : 12000,
-    "chromeWebSecurity": false,
-    "baseUrl": "http://automationpractice.com/index.php",
-    "env": {
-        "login-url": "http://automationpractice.com/index.php?controller=authentication&back=my-account",
-        "contactUs-url": "http://automationpractice.com/index.php?controller=contact",
-        "registered-email": "registered@account.com",
-        "password": "password"
-    }
+  "retries": {
+    "runMode": 2,
+    "openMode": 1
+  },
+  "viewportWidth": 1280,
+  "viewportHeight": 720,
+  "defaultCommandTimeout": 12000,
+  "chromeWebSecurity": false,
+  "baseUrl": "http://automationpractice.com/index.php",
+  "env": {
+    "login-url": "http://automationpractice.com/index.php?controller=authentication&back=my-account",
+    "contactUs-url": "http://automationpractice.com/index.php?controller=contact",
+    "registered-email": "registered@account.com",
+    "password": "password"
+  },
+  "projectId": "ddwqhs"
 }
