@@ -31,7 +31,7 @@ describe("Registration Test", () => {
         loginPage.verifyIfEmailAddressIsGreen()
     })
 
-    it.only("TC-4 Create an account", () => {
+    it("TC-4 Create an account", () => {
         const email = randomEmail();
         const name = randomName();
         const lastName = randomLastName();

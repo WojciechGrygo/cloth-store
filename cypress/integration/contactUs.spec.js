@@ -1,7 +1,7 @@
 import { ContactUsPage } from '../support/contactUs_page';
 import { randomNumber } from '../support/faker'
 
-describe('Login Test', () => {
+describe('Contact Us Test', () => {
 
     const contactUsPage = new ContactUsPage();
     let msg
