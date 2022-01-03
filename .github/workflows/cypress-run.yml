@@ -1,12 +1,15 @@
-cypress-run:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        containers: [1, 2, 3]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          parallel: true
+name: End-to-end tests
+on: [push]
+jobs:  
+  cypress-run:
+      runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          containers: [1, 2, 3]
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - name: Cypress run
+          uses: cypress-io/github-action@v2
+          with:
+            parallel: true
