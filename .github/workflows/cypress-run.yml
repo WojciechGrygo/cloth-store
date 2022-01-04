@@ -33,8 +33,9 @@
 
 name: End-to-end tests
 on:
+  [push]
   schedule: 
-    - cron: '56 10 * * *'
+    - cron: '0 11 * * *'
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
