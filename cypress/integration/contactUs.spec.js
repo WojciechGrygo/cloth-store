@@ -1,4 +1,4 @@
-import { ContactUsPage } from '../support/contactUs_page';
+import { ContactUsPage } from '../support/pages/contactUs_page';
 import { randomNumber } from '../support/faker'
 
 describe('Contact Us Test', () => {

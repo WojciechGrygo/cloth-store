@@ -1,5 +1,5 @@
-import { LoginPage } from '../support/login_page'
-import { MyAccountPage } from '../support/myAccount_page'
+import { LoginPage } from '../support/pages/login_page'
+import { MyAccountPage } from '../support/pages/myAccount_page'
 
 describe('Login Test', () => {
 

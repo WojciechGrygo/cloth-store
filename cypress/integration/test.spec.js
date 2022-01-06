@@ -1,5 +1,5 @@
-import { LoginPage } from '../support/login_page'
-import { MyAccountPage } from '../support/myAccount_page';
+import { LoginPage } from '../support/pages/login_page'
+import { MyAccountPage } from '../support/pages/myAccount_page';
 
 const loginPage = new LoginPage();
 const myAccountPage = new MyAccountPage();
@@ -12,5 +12,11 @@ describe('Test', () => {
         cy.fixture('buttonsNames.js').then(buttonsNames => {
             myAccountPage.verifyButtonsNames(buttonsNames)
         })
+    })
+
+    it('Verify buttons names on my account page 2', () => {
+        cy.visit(Cypress.env('login-url'))
+        loginPage.login('registered@account.com', 'password')
+        myAccountPage.verifyButtonsNames()
     })
 })

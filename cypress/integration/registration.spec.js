@@ -1,6 +1,6 @@
 import { randomName, randomLastName, randomPhoneNumber, randomZipCode, randomCity, randomAddress, randomState, randomEmail } from '../support/faker';
-import { LoginPage } from '../support/login_page'
-import { AccountCreationPage } from '../support/accountCreation_page'
+import { LoginPage } from '../support/pages/login_page'
+import { AccountCreationPage } from '../support/pages/accountCreation_page'
 
 describe("Registration Test", () => {
 

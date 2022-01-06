@@ -14,5 +14,6 @@
     "registered-email": "registered@account.com",
     "password": "password"
   },
+  "ignoreTestFiles": "**/integration/test.spec.js",
   "projectId": "ddwqhs"
 }

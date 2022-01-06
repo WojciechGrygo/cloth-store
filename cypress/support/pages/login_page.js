@@ -1,4 +1,4 @@
-import { locators } from "./locators"
+import { locators } from "../locators"
 export class LoginPage {
 
     clickCreateAnAccount() {
