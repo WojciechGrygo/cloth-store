@@ -29,8 +29,7 @@ describe('Purchase Test', () => {
         const productName = 'Blouse'
         const productPrice = '$27.00'
         homePage.verifyIfCartEmpty()
-        homePage.openProduct()
-        homePage.clickAddToCart()
+        homePage.addBlouseToCart()
         homePage.clickProceedToCheckout()
         cartPage.verifyProductName(productName)
         cartPage.verifyProductPrice(productPrice)
@@ -38,15 +37,50 @@ describe('Purchase Test', () => {
     })
     
     it('TC-27 Add the configured product to your cart', () => {
-        
+        const productName = 'Blouse'
+        const productPrice = '27.00'
+        const productQuantity = 3
+        const productSize = 'M'
+
+        homePage.clickBlouse()
+        homePage.changeProductQuantity(productQuantity)
+        homePage.changeProductSize(productSize)
+        homePage.selectWhiteBlouse()
+        homePage.clickAddToCart()
+        cy.contains(`There are ${productQuantity} items in your cart.`)
+        homePage.clickProceedToCheckout()
+        cartPage.verifyTotalPrice(productPrice, productQuantity)
+        cartPage.verifyProductQuantity(productQuantity)
+        cartPage.verifyProductName(productName)
+        cartPage.verifyProductPrice(productPrice)
     })
 
     it('TC-28 Buy product and pay by bank wire', () => {
-        
+        const productPrice = 27
+
+        homePage.addBlouseToCart()
+        homePage.clickProceedToCheckout()
+        cartPage.proceedToCheckoutFirst()
+        cartPage.proceedToCheckoutSecond()
+        cartPage.checkTermsOfService()
+        cartPage.proceedToCheckoutThird()
+        cartPage.verifyPriceWithShipping(productPrice)
+        cartPage.selectPayByBankWire()
+        cartPage.confirmMyOrder()
     })    
     
     it('TC-29 Buy product and pay by check', () => {
-        
+        const productPrice = 27
+
+        homePage.addBlouseToCart()
+        homePage.clickProceedToCheckout()
+        cartPage.proceedToCheckoutFirst()
+        cartPage.proceedToCheckoutSecond()
+        cartPage.checkTermsOfService()
+        cartPage.proceedToCheckoutThird()
+        cartPage.verifyPriceWithShipping(productPrice)
+        cartPage.selectPayByCheck()
+        cartPage.confirmMyOrder()
     })
 
     it('TC-30 Verify Order History', () => {

@@ -1,13 +1,31 @@
 export class HomePage {
 
+    addBlouseToCart() {
+        cy.get('[title="Blouse"]').eq(2).click()
+        this.clickAddToCart()
+    }
+
     addToWishList() {
         cy.get('#wishlist_button').click()
         cy.get('.fancybox-error').should('contain', 'Added to your wishlist.')
         cy.get('.fancybox-close').click()
     }
 
+    changeProductQuantity(quantity) {
+        cy.get('#quantity_wanted').clear().type(quantity)
+    }
+
+    changeProductSize(size) {
+        cy.get('#group_1').select(size)
+    }
+
     clickAddToCart() {
         cy.contains('Add to cart').click()
+    }
+
+    clickBlouse() {
+        cy.get('[title="Blouse"]').eq(2).click()
+        cy.url().should('include', 'controller=product')
     }
 
     clickMore() {
@@ -51,15 +69,15 @@ export class HomePage {
         cy.contains('#categories_block_left .title_block', 'Women').should('be.visible')
     }
 
-    openProduct() {
-        cy.get('[title="Blouse"]').eq(2).click()
-    }
-    
     searchProduct(value) {
         cy.get('#search_query_top')
             .clear()
             .type(value)
         cy.get('.button-search').click()
+    }
+
+    selectWhiteBlouse() {
+        cy.get("a[name='White']").click()
     }
 
     verifyIfCartEmpty() {
