@@ -4,6 +4,10 @@ export class MyAccountPage {
         cy.get('#contact-link').click()
     }
 
+    openMyWishlist() {
+        cy.contains('My wishlists').click()
+    }
+
     signOut() {
         cy.get('.logout').click()
         cy.contains('Sign in').should('be.visible')

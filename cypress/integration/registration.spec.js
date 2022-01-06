@@ -53,6 +53,6 @@ describe("Registration Test", () => {
         loginPage.clickCreateAnAccount()
         accountCreationPage.fillAllObligatoryFields(name, lastName, invalidPassword, address, city, state, postCode, phoneNumber)
         accountCreationPage.clickRegister()
-        accountCreationPage.verifyInvalidPasswordError()
+        accountCreationPage.verifyInvalidPasswordError() // should be change -> it should fail
     })
 })

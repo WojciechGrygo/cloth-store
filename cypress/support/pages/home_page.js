@@ -1,13 +1,44 @@
 export class HomePage {
 
+    addToWishList() {
+        cy.get('#wishlist_button').click()
+        cy.get('.fancybox-error').should('contain', 'Added to your wishlist.')
+        cy.get('.fancybox-close').click()
+    }
+
+    clickAddToCart() {
+        cy.contains('Add to cart').click()
+    }
+
+    clickMore() {
+        cy.contains('More').click()
+    }
+
+    clickProceedToCheckout() {
+        cy.get("[title='Proceed to checkout']").click()
+    }
+
+    clickPrintedDress() {
+        cy.contains('Printed Dress').click()
+    }
+
     openDressesTab() {
         cy.get("div#block_top_menu > ul > li:nth-of-type(2) > a[title='Dresses']").click()
         cy.contains('#categories_block_left .title_block', 'Dresses').should('be.visible')
     }
 
+    openEveningDressesTab() {
+        cy.get("div#block_top_menu > ul > li:nth-of-type(2) > a[title='Dresses']").focus()
+        cy.get('.submenu-container > li > [title="Evening Dresses"]').click()
+    }
+
     openHomePage() {
         cy.get("[alt='My Store']").click()
         cy.url().should('include', 'http://automationpractice.com/index.php')
+    }
+
+    openMyAccountTab() {
+        cy.get('.account').click()
     }
 
     openTshirtTab() {
@@ -18,13 +49,21 @@ export class HomePage {
     openWomenTab() {
         cy.get("a[title='Women']").click()
         cy.contains('#categories_block_left .title_block', 'Women').should('be.visible')
-    }    
+    }
+
+    openProduct() {
+        cy.get('[title="Blouse"]').eq(2).click()
+    }
     
     searchProduct(value) {
         cy.get('#search_query_top')
             .clear()
             .type(value)
         cy.get('.button-search').click()
+    }
+
+    verifyIfCartEmpty() {
+        cy.get("[title='View my shopping cart']").should('contain', '(empty)')
     }
 
     verifyNumberOfProducts(number) {
