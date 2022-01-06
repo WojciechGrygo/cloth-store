@@ -26,6 +26,15 @@ export class CartPage {
         cy.contains('You have chosen to pay by check. Here is a short summary of your order:').should('be.visible')
     }
 
+    saveOrderCode(aliasName) {
+        cy.get('.box').then(el => {
+            let sentence = el.text()
+            let code = sentence.slice(162, 171)
+            cy.log(code)
+            cy.wrap(code).as(aliasName)
+        })
+    }
+
     proceedToCheckoutFirst() {
         cy.get("div#center_column  a[title='Proceed to checkout'] > span").click()
     }

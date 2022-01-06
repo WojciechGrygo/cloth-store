@@ -8,6 +8,10 @@ export class MyAccountPage {
         cy.contains('My wishlists').click()
     }
 
+    openOrderHistoryAndDetails() {
+        cy.contains('Order history and details').click()
+    }
+
     signOut() {
         cy.get('.logout').click()
         cy.contains('Sign in').should('be.visible')

@@ -84,6 +84,19 @@ describe('Purchase Test', () => {
     })
 
     it('TC-30 Verify Order History', () => {
-        
+        homePage.addBlouseToCart()
+        homePage.clickProceedToCheckout()
+        cartPage.proceedToCheckoutFirst()
+        cartPage.proceedToCheckoutSecond()
+        cartPage.checkTermsOfService()
+        cartPage.proceedToCheckoutThird()
+        cartPage.selectPayByCheck()
+        cartPage.confirmMyOrder()
+        cartPage.saveOrderCode('orderCode')
+        homePage.openMyAccountTab()
+        myAccountPage.openOrderHistoryAndDetails()
+        cy.get('@orderCode').then(orderCode => {
+            cy.contains(orderCode).should('be.visible')
+        })
     })
 })
