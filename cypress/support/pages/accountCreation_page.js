@@ -1,5 +1,9 @@
 export class AccountCreationPage {
 
+    clickRegister() {
+        cy.get("#submitAccount").click()
+    }
+
     fillAllObligatoryFields(name, lastName, password, address, city, state, postCode, phoneNumber) {
         cy.get("#customer_firstname").type(name)
         cy.get("#customer_lastname").type(lastName)
@@ -14,8 +18,12 @@ export class AccountCreationPage {
     }
 
     register() {
-        cy.get("#submitAccount").click()
+        this.clickRegister()
         cy.url().should('include', 'my-account')
         cy.contains('Welcome to your account. Here you can manage all of your personal information and orders.').should('be.visible')
+    }
+
+    verifyInvalidPasswordError() {
+        cy.contains('.alert-danger', 'passwd is invalid.').should('be.visible') // should be 'Password is invalid.'
     }
 }

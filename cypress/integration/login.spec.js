@@ -14,13 +14,6 @@ describe('Login Test', () => {
         loginPage.clearInputs()
     })
 
-    it('TC-5 Invalid email address and password', () => {
-        loginPage.enterLoginEmail('invalidemail.com')
-        loginPage.enterPassword('wrongPassword')
-        loginPage.clickSignIn()
-        loginPage.verifyLoginValidationMsg('Invalid email address.')
-    })
-
     it('TC-6 Empty email and password fields', () => {
         loginPage.clickSignIn()
         loginPage.verifyLoginValidationMsg('An email address required.')
@@ -51,7 +44,14 @@ describe('Login Test', () => {
         loginPage.verifyLoginValidationMsg('Authentication failed.')
     })
 
-    it('TC-11 Successful login and logout', () => {
+    it('TC-11 Invalid email address and password', () => {
+        loginPage.enterLoginEmail('invalidemail.com')
+        loginPage.enterPassword('wrongPassword')
+        loginPage.clickSignIn()
+        loginPage.verifyLoginValidationMsg('Invalid email address.')
+    })
+
+    it('TC-12 Successful login and logout', () => {
         loginPage.enterLoginEmail(Cypress.env('registered-email'))
         loginPage.enterPassword(Cypress.env('password'))
         loginPage.signIn()

@@ -7,6 +7,15 @@ describe("Registration Test", () => {
     const loginPage = new LoginPage();
     const accountCreationPage = new AccountCreationPage();
 
+    const email = randomEmail();
+    const name = randomName();
+    const lastName = randomLastName();
+    const address = randomAddress();
+    const city = randomCity();
+    const state = randomState();
+    const postCode = randomZipCode();
+    const phoneNumber = randomPhoneNumber();
+
     beforeEach(() => {
         cy.visit(Cypress.env('login-url'))
     })
@@ -32,18 +41,18 @@ describe("Registration Test", () => {
     })
 
     it("TC-4 Create an account", () => {
-        const email = randomEmail();
-        const name = randomName();
-        const lastName = randomLastName();
-        const address = randomAddress();
-        const city = randomCity();
-        const state = randomState();
-        const postCode = randomZipCode();
-        const phoneNumber = randomPhoneNumber();
-
         loginPage.enterEmail(email)
         loginPage.clickCreateAnAccount()
         accountCreationPage.fillAllObligatoryFields(name, lastName, Cypress.env('password'), address, city, state, postCode, phoneNumber)
         accountCreationPage.register()
+    })
+
+    it("TC-5 Enter too short password", () => {
+        const invalidPassword = 'aaaa'
+        loginPage.enterEmail(email)
+        loginPage.clickCreateAnAccount()
+        accountCreationPage.fillAllObligatoryFields(name, lastName, invalidPassword, address, city, state, postCode, phoneNumber)
+        accountCreationPage.clickRegister()
+        accountCreationPage.verifyInvalidPasswordError()
     })
 })

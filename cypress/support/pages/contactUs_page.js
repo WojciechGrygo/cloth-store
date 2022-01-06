@@ -19,6 +19,13 @@ export class ContactUsPage {
             .and('contain', 'Your message has been successfully sent to our team.')
     }
 
+    selectOrderReference(value) {
+        cy.get('[name="id_order"]').select(value)
+        cy.get('.col-md-3.col-xs-12 > div:nth-of-type(3)')
+            .should('contain', 'Product')
+            .and('be.visible')
+    }
+
     selectSubjectHeading(value) {
         cy.get('#id_contact').select(value)
         if (value === 'Customer service') {
@@ -28,8 +35,16 @@ export class ContactUsPage {
         }
     }
 
+    selectProduct(value) {
+        cy.get('[name="id_product"]').select(value)
+    }
+
     verifyValidationMsg(value) {
         cy.get('.alert-danger').should('have.css', 'background-color', 'rgb(243, 81, 92)')
         cy.contains('ol li', value).should('be.visible')
+    }
+
+    verifyIfEmailAddressIsPrepopulated(value) {
+        cy.get('#email').should('have.value', value)
     }
 }
