@@ -36,7 +36,7 @@ export class ContactUsPage {
     }
 
     selectProduct(value) {
-        cy.get('[name="id_product"]').select(value)
+        cy.get('.form-group.selector1 > #uniform-394600_order_products > [name="id_product"]').select(value)
     }
 
     verifyValidationMsg(value) {

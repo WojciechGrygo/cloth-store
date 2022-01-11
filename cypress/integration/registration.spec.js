@@ -47,7 +47,7 @@ describe("Registration Test", () => {
         accountCreationPage.register()
     })
 
-    it("TC-5 Enter too short password", () => {
+    it.only("TC-5 Enter too short password", () => {
         const invalidPassword = 'aaaa'
         loginPage.enterEmail(email)
         loginPage.clickCreateAnAccount()
