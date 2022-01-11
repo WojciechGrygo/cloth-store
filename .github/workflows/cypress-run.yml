@@ -31,18 +31,18 @@ jobs:
 #       - name: Cypress run
 #         uses: cypress-io/github-action@v2
 
-# name: End-to-end tests
-# on:
-#   push:
-#     branches:
-#       - main
-#   schedule: 
-#     - cron: '0 12 * * *'
-# jobs:
-#   cypress-run:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v2
-#       - name: Cypress run
-#         uses: cypress-io/github-action@v2
+name: End-to-end tests
+on:
+  push:
+    branches:
+      - main
+  schedule: 
+    - cron: '0 12 * * *'
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
