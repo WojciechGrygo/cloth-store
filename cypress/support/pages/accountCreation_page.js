@@ -24,6 +24,6 @@ export class AccountCreationPage {
     }
 
     verifyInvalidPasswordError() {
-        cy.contains('.alert-danger', 'passwd is invalid.').should('be.visible') // should be 'Password is invalid.'
+        cy.contains('.alert-danger', 'Password is invalid.').should('be.visible') // it's 'passw is invalid.' 
     }
 }

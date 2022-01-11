@@ -18,7 +18,7 @@ describe('Home Test', () => {
     it('TC-23 Find existing product using searching bar', () => {
         const productName = 'Printed Chiffon Dress'
         homePage.searchProduct(productName)
-        homePage.verifyNumberOfProducts(2) // should be 1
+        homePage.verifyNumberOfProducts(1) // bug - it shows 2
     })
 
     it('TC-24 Find non-existing product using searching bar', () => {
