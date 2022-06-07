@@ -1,26 +1,26 @@
-name: End-to-end tests
-on:
-  schedule: 
-    - cron: '0 12 * * *'
-jobs:  
-  cypress-run:
-      runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          containers: [1, 2, 3]
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: Cypress run
-          uses: cypress-io/github-action@v2
-          with:
-            record: true
-            parallel: true
-          env:
-            # pass the Dashboard record key as an environment variable
-            CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-            # pass GitHub token to allow accurately detecting a build vs a re-run build
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# name: End-to-end tests
+# on:
+#   schedule: 
+#     - cron: '0 12 * * *'
+# jobs:  
+#   cypress-run:
+#       runs-on: ubuntu-latest
+#       strategy:
+#         matrix:
+#           containers: [1, 2, 3]
+#       steps:
+#         - name: Checkout
+#           uses: actions/checkout@v2
+#         - name: Cypress run
+#           uses: cypress-io/github-action@v2
+#           with:
+#             record: true
+#             parallel: true
+#           env:
+#             # pass the Dashboard record key as an environment variable
+#             CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+#             # pass GitHub token to allow accurately detecting a build vs a re-run build
+#             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 # name: End-to-end tests
 # on: [push]
